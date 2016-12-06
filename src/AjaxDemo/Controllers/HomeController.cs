@@ -31,7 +31,7 @@ namespace AjaxDemo.Controllers
 
         public IActionResult DisplayObject()
         {
-            Destination destination = new Destination("Bangkok", "Thailand", 1);
+            Destination destination = new Destination("Cubongo", "Cubongo", 1);
             return Json(destination);
         }
         public IActionResult DisplayViewWithAjax()
@@ -43,6 +43,15 @@ namespace AjaxDemo.Controllers
         {
             var randomDestinationList = db.Destinations.OrderBy(r => Guid.NewGuid()).Take(destinationCount);
             return Json(randomDestinationList);
+        }
+
+        [HttpPost]
+        public IActionResult NewDestination(string newCity, string newCountry)
+        {
+            Destination newDestination = new Destination(newCity, newCountry);
+            db.Destinations.Add(newDestination);
+            db.SaveChanges();
+            return Json(newDestination);
         }
     }
 
