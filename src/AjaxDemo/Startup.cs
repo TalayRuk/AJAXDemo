@@ -12,6 +12,8 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using AjaxDemo.Models;
+
 namespace AjaxDemo
 {
     public class Startup
@@ -20,14 +22,20 @@ namespace AjaxDemo
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath);
-               
-          
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json");
+            Configuration = builder.Build();
+
+
         }
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
- 
+            services.AddDbContext<AjaxDemoContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddEntityFramework()
+                .AddEntityFrameworkSqlServer();
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
