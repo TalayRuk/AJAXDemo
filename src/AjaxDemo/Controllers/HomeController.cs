@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-
-
+using AjaxDemo.Models;
 
 namespace AjaxDemo.Controllers
 {
@@ -26,6 +25,12 @@ namespace AjaxDemo.Controllers
         public IActionResult Sum(int firstNumber, int secondNumber)
         {
             return Content((firstNumber + secondNumber).ToString(), "text/plain");
+        }
+
+        public IActionResult DisplayObject()
+        {
+            Destination destination = new Destination("Bangkok", "Thailand", 1);
+            return Json(destination);
         }
     }
 
