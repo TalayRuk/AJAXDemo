@@ -17,5 +17,12 @@ namespace AjaxDemo.Controllers
         {
             return Content("Hello from the controller!", "text/plain");
         }
+
+        //pass parameters from the client side to the server
+        public IActionResult Sum(int firstNumber, int secondNumber)
+        {
+            return Content((firstNumber + secondNumber).ToString(), "text/plain");
+        }
     }
+
 }

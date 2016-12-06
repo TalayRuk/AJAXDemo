@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Mvc;
 namespace AjaxDemo
 {
     public class Startup
@@ -20,9 +20,9 @@ namespace AjaxDemo
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json");
-            Configuration = builder.Build();
+                .SetBasePath(env.ContentRootPath);
+               
+          
         }
         public void ConfigureServices(IServiceCollection services)
         {
@@ -33,7 +33,7 @@ namespace AjaxDemo
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseStaticFiles();
-            app.UseIdentity();
+          
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -42,7 +42,7 @@ namespace AjaxDemo
             });
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Error Page!");
+                await context.Response.WriteAsync("Hello!");
             });
         }
     }

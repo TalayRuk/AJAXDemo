@@ -3,19 +3,8 @@
 <head>
     <title>AJAX Demo</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-</head>
-<body>
-    @*Header for organization purpose*@
-    <h2>Basic AJAX</h2>
 
-     @*this is the AJAX-Enabled DOM element*@
-    <h4>class="hello-ajax">Hello AJAX</h4>
-
-    @*AJAX wrapper or container, part of page which will replace whatever content loaded from the server*@
-    <div id="result1"></div>
-
-        @*JQuery.ajax() method to perform AJAX requests.Must have a script tag b4 JQuery*@
-    <script type="text/javascript">
+        <script type="text/javascript">
         $(document).ready(function () {
 
             //attached the .click() method to the hello-ajax class, so when we click on the "Hello AJAX" header, the $.ajax() method will be called, performing an AJAX request. $.ajax()
@@ -34,8 +23,34 @@
                 }
             });
         });
+            $('.sum').click(function () {
+                $.ajax({
+                    type: 'GET',
+                    data: { firstNumber: 1, secondNumber: 2 },
+                    url: '@Url.Action("Sum")',
+                    success: function (result) {
+                        $('#result2').html(result);
+                    }
+                });
+            });
     });
     </script>
+</head>
+<body>
+    @*Header for organization purpose*@
+    <h2>Basic AJAX</h2>
+
+     @*this is the AJAX-Enabled DOM element*@
+    <h4>class="hello-ajax">Hello AJAX</h4>
+
+    @*AJAX wrapper or container, part of page which will replace whatever content loaded from the server*@
+    <div id="result1"></div>
+
+        @*JQuery.ajax() method to perform AJAX requests.Must have a script tag b4 JQuery*@
+
+    <h2>Using Parameters</h2>
+    <h4 class="sum">Sum</h4>
+    <div id="result2"></div>
 </body>
 </html>
 
