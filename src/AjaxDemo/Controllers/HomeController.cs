@@ -11,6 +11,10 @@ namespace AjaxDemo.Controllers
 {
     public class HomeController : Controller
     {
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         // When Home/Ajax is requested the text bleow is returned. this is the result used in the success function in our javascript.
         public IActionResult HelloAjax()

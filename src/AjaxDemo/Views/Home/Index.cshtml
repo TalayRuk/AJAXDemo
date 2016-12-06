@@ -26,7 +26,9 @@
             $('.sum').click(function () {
                 $.ajax({
                     type: 'GET',
+                    //ajax() method uses a new parameter, data, which is the data to be sent to the server. In this case, we've sent an array of two numbers, which are the numbers used by the Sum action in the controller
                     data: { firstNumber: 1, secondNumber: 2 },
+
                     url: '@Url.Action("Sum")',
                     success: function (result) {
                         $('#result2').html(result);
@@ -41,13 +43,12 @@
     <h2>Basic AJAX</h2>
 
      @*this is the AJAX-Enabled DOM element*@
-    <h4>class="hello-ajax">Hello AJAX</h4>
+    <h4 class="hello-ajax">Hello AJAX</h4>
 
     @*AJAX wrapper or container, part of page which will replace whatever content loaded from the server*@
     <div id="result1"></div>
 
         @*JQuery.ajax() method to perform AJAX requests.Must have a script tag b4 JQuery*@
-
     <h2>Using Parameters</h2>
     <h4 class="sum">Sum</h4>
     <div id="result2"></div>
