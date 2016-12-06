@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AJAX Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+    @*Header for organization purpose*@
+    <h2>Basic AJAX</h2>
+
+     @*this is the AJAX-Enabled DOM element*@
+    <h4>class="hello-ajax">Hello AJAX</h4>
+
+    @*AJAX wrapper or container, part of page which will replace whatever content loaded from the server*@
+    <div id="result1"></div>
+
+        @*JQuery.ajax() method to perform AJAX requests.Must have a script tag b4 JQuery*@
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //attached the .click() method to the hello-ajax class, so when we click on the "Hello AJAX" header, the $.ajax() method will be called, performing an AJAX request. $.ajax()
+        $('.hello-ajax').click(function () {
+            $.ajax({
+
+                //the HTTP method which will be GET in this case
+                type: 'GET',
+
+                // The Url to which the request is sent.
+                url: '@Url.Action("HelloAjax")',
+
+                // This is the function that is called if the request is succesful, it takes the argument (result) which is whatever is returned from the request.We call the .html() method on result1 Id to replace its contents with result./
+                success: function (result) {
+                    $('#result1').html(result);
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
+
+   
