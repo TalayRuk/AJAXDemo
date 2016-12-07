@@ -10,7 +10,8 @@ namespace AjaxDemo.Models
     [Table("Destinations")]
     public class Destination
     {
-        [Key]
+        //Key tag is referecing Id b/c it's above Id, If the Key tag is above city, it'll make city a primary Key!
+        [Key] 
         public int Id { get; set; }
         public string City { get; set; }
         public string Country { get; set; }

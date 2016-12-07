@@ -101,45 +101,49 @@
     </script>
 </head>
 <body>
-    @*Header for organization purpose*@
-    <h2>Basic AJAX</h2>
+    <div class="container">
 
-     @*this is the AJAX-Enabled DOM element*@
-    <h4 class="hello-ajax">Hello AJAX</h4>
+        @*Header for organization purpose*@
+        <h2>Basic AJAX</h2>
 
-    @*AJAX wrapper or container, part of page which will replace whatever content loaded from the server*@
-    <div id="result1"></div>
+        @*this is the AJAX-Enabled DOM element*@
+        <h4 class="hello-ajax">Hello AJAX</h4>
+
+        @*AJAX wrapper or container, part of page which will replace whatever content loaded from the server*@
+        <div id="result1"></div>
 
         @*JQuery.ajax() method to perform AJAX requests.Must have a script tag b4 JQuery*@
-    <h2>Using Parameters</h2>
-    <h4 class="sum">Sum</h4>
-    <div id="result2"></div>
+        <h2>Using Parameters</h2>
+        <h4 class="sum">Sum</h4>
+        <div id="result2"></div>
 
-    <h2>Using JSON to display an object</h2>
-    <h4 class="display-object">Display object</h4>
-    <div id="result3"></div>
+        <h2>Using JSON to display an object</h2>
+        <h4 class="display-object">Display object</h4>
+        <div id="result3"></div>
 
-    <h2>Displaying a view</h2>
-    <h4 class="display-view">Display view</h4>
-    <div id="result4"></div>
+        <h2>Displaying a view</h2>
+        <h4 class="display-view">Display view</h4>
+        <div id="result4"></div>
 
-    <h2>Using a form to make a GET request</h2>
-    <form action="RandomDestinationList" class="display-random-database-items">
-        <label for="destinationCount">How many destinations would you like to see?</label>
-        <input type="number" name="destinationCount" />
-        <button type="submit">Submit</button>
-    </form>
-    <div id="result5"></div>
+        <h2>Using a form to make a GET request</h2>
+        <form action="RandomDestinationList" class="display-random-database-items">
+            <label for="destinationCount">How many destinations would you like to see?</label>
+            <input type="number" name="destinationCount" />
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result5"></div>
 
-    <h2>Submitting data with a POST request</h2>
-    <form action="NewDestination" class="new-destination">
-        <label for="newCity">City: </label>
-        <input type="text" name="newCity" />
-        <label for="newCountry">Country: </label>
-        <input type="text" name="newCountry" />
-        <button type="submit">Submit</button>
-    </form>
-    <div id="result6"></div>
+        <h2>Submitting data with a POST request</h2>
+        <form action="NewDestination" class="new-destination">
+            <label for="newCity">City: </label>
+            <input type="text" name="newCity" />
+            <label for="newCountry">Country: </label>
+            <input type="text" name="newCountry" />
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result6"></div>
+
+    </div>
 </body>
 </html>
 
